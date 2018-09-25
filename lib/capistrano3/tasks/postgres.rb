@@ -31,7 +31,6 @@ namespace :postgres do
           "PGPASSWORD=#{config['password']}",
           "pg_dump #{user_option(config)}",
           #"-h #{config['host']}",
-          "-c",
           config['port'] ? "-p #{config['port']}" : nil,
           "-Fc",
           "--file=#{fetch(:postgres_remote_sqlc_file_path)}",
