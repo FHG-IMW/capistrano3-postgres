@@ -28,9 +28,9 @@ namespace :postgres do
           set :postgres_remote_sqlc_file_path, "#{shared_path}/#{fetch(:postgres_backup_dir)}/#{file_name}"
         end
         execute [
-          #"PGPASSWORD=#{config['password']}",
+          "PGPASSWORD=#{config['password']}",
           "pg_dump #{user_option(config)}",
-          "-h #{config['host']}",
+          #"-h #{config['host']}",
           config['port'] ? "-p #{config['port']}" : nil,
           "-Fc",
           "--file=#{fetch(:postgres_remote_sqlc_file_path)}",
